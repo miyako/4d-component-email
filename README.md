@@ -47,10 +47,7 @@ OPEN URL($path)
 標準テキスト（ISO-2022-JP）
 
 ```
-  //標準テキストのメールを送信する
-
-  //半角, はしご高，丸文字など，通常のISO-2022-JPでは送信できな文字，かつ長文（特にヘッダーで化けやすい）
-$sample_text:="ｱｲｳｴｵ髙橋あいうえお①②③"*100
+$sample_text:="ｱｲｳｴｵ髙橋あいうえお①②③"
 
   //MIMEオブジェクト
   //$1:文字セット (TEXT, optional, default=utf-8)
@@ -62,16 +59,17 @@ $message:=MIME_New ("iso-2022-jp")
   //$2:ヘッダー名 (TEXT)
   //$3:ヘッダー値 (TEXT)
   //$4:文字セット (TEXT, optional)
-MIME_ADD_HEADER ($message;"From";"MIYAKO <keisuke.miyako@4d.com>")
-MIME_ADD_HEADER ($message;"To";"MIYAKO <keisuke.miyako@4d.com>")
-MIME_ADD_HEADER ($message;"Subject";$sample_text)
+  //ひとりめのFrom, To, etc.は省略しても良い
+  //MIME_ADD_HEADER ($message;"From";"MIYAKO <keisuke.miyako@4d.com>")
+  //MIME_ADD_HEADER ($message;"To";"MIYAKO <keisuke.miyako@4d.com>")
+MIME_ADD_HEADER ($message;"Subject";"サンプルメール")
 
   //本文
   //$1:MIMEオブジェクト (OBJECT)
   //$2:標準テキスト部 (TEXT)
   //$3:HTMLテキスト部 (TEXT)
   //$4:文字セット (TEXT, optional)
-MIME_ADD_BODY ($message;$sample_text;"")
+MIME_ADD_BODY ($message;$sample_text*100;"")
 
 $MIME:=MIME_Export_to_variable ($message)
 
@@ -91,8 +89,6 @@ ALERT(Choose($error=0;"OK";IT_ErrorText ($error)))
 標準テキストおよびHTML（UTF-8）
 
 ```
-  //標準テキストとHTMLの混合メールを送信する
-
   //MIMEオブジェクト
   //$1:文字セット (TEXT, optional, default=utf-8)
 $message:=MIME_New ("utf-8")
@@ -102,9 +98,10 @@ $message:=MIME_New ("utf-8")
   //$2:ヘッダー名 (TEXT)
   //$3:ヘッダー値 (TEXT)
   //$4:文字セット (TEXT, optional)
-MIME_ADD_HEADER ($message;"From";"MIYAKO <keisuke.miyako@4d.com>")
-MIME_ADD_HEADER ($message;"To";"MIYAKO <keisuke.miyako@4d.com>")
-MIME_ADD_HEADER ($message;"Subject";"test_"+Generate UUID)
+  //ひとりめのFrom, To, etc.は省略しても良い
+  //MIME_ADD_HEADER ($message;"From";"MIYAKO <keisuke.miyako@4d.com>")
+  //MIME_ADD_HEADER ($message;"To";"MIYAKO <keisuke.miyako@4d.com>")
+MIME_ADD_HEADER ($message;"Subject";"サンプルメール")
 
   //添付ファイル
   //$1:MIMEオブジェクト (OBJECT)
