@@ -113,7 +113,7 @@ MIME_ADD_HEADER ($message;"Subject";"サンプルメール")
   //$7:content-disposition (TEXT, optional, default=inline)
 
 READ PICTURE FILE(Get 4D folder(Current resources folder)+"icon.png";$image)
-MIME_ADD_PART ($message;->$image;"logo.png";"image/png";$charset;"img1";"inline")
+MIME_ADD_PART ($message;->$image;"logo.png";"image/png";"";"img1";"inline")
 
   //本文
   //$1:MIMEオブジェクト (OBJECT)
