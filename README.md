@@ -1,6 +1,8 @@
 # 4d-component-email
 Construct MIME with extended ISO-2022-JP support
 
+##About
+
 MIMEを作成するためのユーティリティです。v15のInternet Commands (QuickSend) には，MIMEをそのまま渡すことができるので，MIME構築をプラグインに頼る必要がありません。MIMEを標準の文字列コマンドだけで構築することにより，Internet Commandsのバグや制限を回避することができます。特に下記の点でInternet Commands (Send) よりも優れています。
 
 * 添付ファイルの二重表示防止
