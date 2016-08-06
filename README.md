@@ -15,7 +15,7 @@ Internet Commandsは``multipart/mixed``で固定ですが，これを``multipart
 
 Internet Commandsは``text/plain``と``text/html``のどちらかですが，``multipart/alternative``で両方とも含めることができます。
 
-* ISO-2022-JPの処理
+* 拡張文字のサポート
 
 JISマップにMicrosoftコードページ932を使用することにより，「はしご高（IBM拡張文字）」のような文字も送信することができます。また，正式な仕様ではないとされている半角カナ ``ESC (I`` も送信することができます。
 
