@@ -5,6 +5,15 @@ Construct MIME with extended ISO-2022-JP support
 
 MIMEを作成するためのユーティリティです。v15のInternet Commands (QuickSend) には，MIMEをそのまま渡すことができるので，MIME構築をプラグインに頼る必要がありません。MIMEを標準の文字列コマンドだけで構築することにより，Internet Commandsのバグや制限を回避することができます。特に下記の点でInternet Commands (Send) よりも優れています。
 
+ISO-2022-JPはデフォルトでWindows機種依存文字をサポートします。つまり，JIS0201（158文字; アスキー・半角カナ・円マークを含み，バックスラックシュを含まない）JIS0208（6879文字），Windows機種依存文字（457文字）を扱おうことができます。
+
+下記のオプションを指定することにより，Windows機種依存文字をサポートしない代わりに，JIS X 0212（6067文字）の補助漢字をサポートし，必要に応じてISO-2022-JP-1に切り替えます。
+
+```
+MIME_SET_OPTION ($message;"useStandardJISX0208";"1")
+```
+
+
 ---
 
 * 添付ファイルの二重表示防止
