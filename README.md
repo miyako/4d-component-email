@@ -5,6 +5,16 @@ Construct MIME with extended ISO-2022-JP support
 
 MIMEを作成するためのユーティリティです。v15のInternet Commands (QuickSend) には，MIMEをそのまま渡すことができるので，MIME構築をプラグインに頼る必要がありません。MIMEを標準の文字列コマンドだけで構築することにより，Internet Commandsのバグや制限を回避することができます。特に下記の点でInternet Commands (Send) よりも優れています。
 
+##Update
+
+JIS 0212の補助漢字（6067文字）のサポートを追加しました。（ISO-2022-JP-1）
+
+[SAMPLE.md]の文字群が使用できます。。
+
+* JIS0201（158文字）ASCII; 半角カナ・円マークを含み，バックスラックシュを含まない
+* JIS0208（6879文字）JIS漢字（1/2水準）
+* JIS X 0212（6067文字）補助漢字
+
 * 添付ファイルの二重表示防止
 
 Internet Commandsは``multipart/mixed``で固定ですが，これを``multipart/related``とすることにより，Apple MailでHTMLがContent-IDで参照している画像添付ファイルの二重表示を防止することができます。
